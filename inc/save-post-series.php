@@ -54,6 +54,7 @@ function save_post_series($post_id) {
                 }
             }
             // backdrop
+           
             if( isset( $grabber['backdrop_path'] ) ) {
 
                 if( TR_GRABBER_LANG == 'zh-CN' or TR_GRABBER_LANG == 'ar-AR' or TR_GRABBER_LANG == 'ko-KR' or TR_GRABBER_LANG == "bs-BS" or TR_GRABBER_LANG == "bg-BG" or TR_GRABBER_LANG == "hr-HR" or TR_GRABBER_LANG == "cs-CZ" or TR_GRABBER_LANG == "da-DK" or TR_GRABBER_LANG == "he-IL" or  TR_GRABBER_LANG == 'el-GR' or TR_GRABBER_LANG == 'lb-LB' or TR_GRABBER_LANG == 'lt-LT' or TR_GRABBER_LANG == 'fa-IR' or TR_GRABBER_LANG == 'ro-RO' or TR_GRABBER_LANG == 'ru-RU' or TR_GRABBER_LANG == 'sk-SK' or TR_GRABBER_LANG == 'th-TH' or TR_GRABBER_LANG == 'tr-TR' or TR_GRABBER_LANG == 'tw-TW' or TR_GRABBER_LANG == 'uk-UA' or TR_GRABBER_LANG == 'vi-VN' ) {
@@ -147,6 +148,7 @@ function save_post_series($post_id) {
             TR_GRABBER_ORIGINAL_TITLE => isset($_POST['original_title']) ? $_POST['original_title'] : '',
             TR_GRABBER_FIELD_INPRODUCTION => isset($_POST['in_production']) ? intval($_POST['in_production']) : '',
             TR_GRABBER_FIELD_STATUS => isset($_POST['status']) ? $_POST['status'] : '',
+            TR_GRABBER_FIELD_BACKDROP => isset($_POST['backdrop_id']) ? intval($_POST['backdrop_id']) : '',
             TR_GRABBER_FIELD_BACKDROP_HOTLINK => isset($_POST['backrop_hotlink']) ? $_POST['backrop_hotlink'] : '',
             TR_GRABBER_POSTER_HOTLINK => isset($_POST['poster_hotlink']) ? $_POST['poster_hotlink'] : '',
             TR_GRABBER_FIELD_RUNTIME => isset($duration) ? $duration : '',
@@ -158,7 +160,7 @@ function save_post_series($post_id) {
     }
     if( isset($array_post_meta) ) {
         foreach ( $array_post_meta as $key => $value ) {
-            $new_meta_value = ( isset( $value ) ? ( $value ) : '' );
+            $new_meta_value = ( isset( $value ) ? ( $value ) : false );
             $meta_value = is_array(get_post_meta( $post_id, $key, true )) ? array_map('stripslashes', get_post_meta( $post_id, $key, true )) : stripslashes( get_post_meta( $post_id, $key, true ) );
             if ( $new_meta_value && '' == $meta_value ){
                 add_post_meta( $post_id, $key, $new_meta_value, true );
@@ -166,7 +168,7 @@ function save_post_series($post_id) {
             elseif ( $new_meta_value && $new_meta_value != $meta_value ){
                 update_post_meta( $post_id, $key, $new_meta_value );
             }
-            elseif ( '' == $new_meta_value && $meta_value ){
+            elseif ( false == $new_meta_value && $meta_value ){
                 delete_post_meta( $post_id, $key, $meta_value );
             }
         }

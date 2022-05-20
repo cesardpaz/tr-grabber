@@ -97,7 +97,7 @@ function trgrabberlive(){
                 echo '<option value="'.get_term_meta( $value->term_id, 'episode_number', true ).'">'.get_term_meta( $value->term_id, 'episode_number', true ).'</option>';
             }
         }else{
-            var_dump(intval( $_POST['value'] ));
+            
             echo '<option value="">'.__('There were no results.', 'tr-grabber').'</option>';
         }
     }

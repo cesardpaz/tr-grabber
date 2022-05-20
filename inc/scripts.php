@@ -17,7 +17,7 @@ function tr_grabber_init_print() {
         if($pq == 'none') $pq = 0;
         if($pl == 'none') $pl = 0;
 
-        var_dump($pq . $pl);
+       
 
         $_GET['post'] = empty($_GET['post']) ? '' : intval($_GET['post']);
         wp_enqueue_script('jquery-ui-droppable');

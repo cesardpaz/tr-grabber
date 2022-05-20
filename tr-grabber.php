@@ -4,7 +4,7 @@
     Plugin URI: https://torothemes.com
     Description: Turn your WordPress into a CMS for movies and series, TMDb API included.
     Author: ToroThemes
-    Version: 2.2
+    Version: 2.5.0
     Author URI: https://torothemes.com/
     License: Private
 */

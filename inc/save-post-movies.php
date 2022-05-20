@@ -118,8 +118,6 @@ function save_post_movies($post_id) {
         if( TR_GRABBER_UPLOAD_IMAGES == 1 ) {
             
             $upload_dir = wp_upload_dir();
-
-
             
             if( isset( $grabber['poster_path'] ) ) {
 
@@ -137,11 +135,6 @@ function save_post_movies($post_id) {
                 else                                    $file = $upload_dir['basedir'] . '/' . $filename;
                 file_put_contents($file, $image_data);
                 $wp_filetype = wp_check_filetype($filename, null );
-
-
-
-
-
 
                 if ( is_rtl() ) { $title_img = md5(sanitize_title($ainp)); }else{ $title_img = sanitize_title($ainp); }
 
@@ -171,8 +164,6 @@ function save_post_movies($post_id) {
                 }
                 
             }
-
-
 
             
             if( isset( $grabber['backdrop_path'] ) ) {
