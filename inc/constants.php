@@ -81,7 +81,7 @@ if( is_admin() and strtolower($mytheme->get('Name')) == 'toroflix' ) {
     
 }
 
-define( 'TR_GRABBER_VERSION', '2.2' );
+define( 'TR_GRABBER_VERSION', '2.3' );
 define( 'TR_GRABBER_LANG', $config_grabber['lang_api'] );
 define( 'TR_GRABBER_API_KEY', $config_grabber['api_key'] );
 define( 'TR_GRABBER_POST_STATUS', $config_grabber['post_status'] );
